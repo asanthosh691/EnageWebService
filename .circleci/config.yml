@@ -1,0 +1,17 @@
+ version: 2.1
+
+ orbs:
+   windows: circleci/windows@2.2.0
+ jobs:
+   build:
+     executor: windows/default
+    
+     steps:
+       - checkout       
+       - run:
+           name: Build Project
+           command: MSBuild.exe -m EnageWebService.sln /t:Rebuild /p:DeployOnBuild=true /p:Configuration=Release  /p:SkipPostSharp=true
+ workflows:
+   Build:
+     jobs:
+       - build
