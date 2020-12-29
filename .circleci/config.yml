@@ -10,7 +10,7 @@
        - checkout
        - run:
            name: Install Dependencies
-           command: MSBuild.exe -t:restore
+           command: MSBuild.exe -t:restore EnageWebService.sln
        - run:
            name: Build Project
            command: MSBuild.exe -m EnageWebService.sln /t:Rebuild /p:DeployOnBuild=true /p:Configuration=Release  /p:SkipPostSharp=true
